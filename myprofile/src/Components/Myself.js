@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Img3 from '../Images/Img3.jpg'
+import Resume1 from '../Docs/Resume1.pdf'
+import Skills from './Skills';
 
 export default function Myself(props)
 {
@@ -25,7 +27,8 @@ export default function Myself(props)
   const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    if (charIndex < text.length ) {
+    
+    if (charIndex < text.length && props.flag) {
       const timeoutId = setTimeout(() => {
         setTypedText(prevTypedText => prevTypedText + text.charAt(charIndex));
         setCharIndex(prevCharIndex => prevCharIndex + 1);
@@ -33,45 +36,66 @@ export default function Myself(props)
 
       return () => clearTimeout(timeoutId);
     }
-  }, [charIndex]);
+
+  }, [charIndex,props.flag]);
 
     return(
+        <>
         <div className='row myself ' >
             
-            <div className='col-4'>
-            <div className='mycard'>
-            <i className="fa-solid fa-map-pin pin"></i>
-            <img src={Img3} alt="my image" className='myimg'/>
-            <div className='myname'>
-            <h2 id="myname">Devansh Goel</h2>
-            <table id="mytable">
-                <tr>
-                    <td className='key'>Education:</td>
-                    <td className='item'>B.Tech CSE (pursuing)</td>
-                </tr>
-                <tr>
-                    <td className='key'>Interest 1:</td>
-                    <td className='item'>Artificial Intelligence</td>
-                </tr>
-                <tr>
-                    <td className='key'>Interest 2:</td>
-                    <td className='item'>Full Stack Development</td>
-                </tr>
-                <tr>
-                    <td className='key'>Personality:</td>
-                    <td className='item'>Curious and Workacholic</td>
-                </tr>
-            </table>
-          
+            <div className='col-lg-4  mycard-container highlight'>
+                <div className='mycard'>
+                    <i className="fa-solid fa-map-pin pin"></i>
+                    <img src={Img3} alt="my image" className='myimg'/>
+                    <div className='myname'>
+                        <h2 id="myname">Devansh Goel</h2>
+                        <table id="mytable">
+                            <tr>
+                                <td className='key'>Education:</td>
+                                <td className='item'>B.Tech CSE (pursuing)</td>
+                            </tr>
+                            <tr>
+                                <td className='key'>Interest 1:</td>
+                                <td className='item'>Artificial Intelligence</td>
+                            </tr>
+                            <tr>
+                                <td className='key'>Interest 2:</td>
+                                <td className='item'>Full Stack Development</td>
+                            </tr>
+                            <tr>
+                                <td className='key'>Personality:</td>
+                                <td className='item'>Curious and Workacholic</td>
+                            </tr>
+                        </table>
+                
+                    </div>
+                </div>
+                { window.innerWidth>1300?<div className='col-lg-4 card Skills'>
+                <Skills/>
+                </div> :<></>}
             </div>
+            <div className='col-lg intro-container highlight '>
+                {props.flag?<p id="intro">
+                    {text}
+               </p>:<></>}
             </div>
-            </div>
-            <div className='col '>
-                <p id="intro">
-                    {typedText}
-               </p>
-            </div>
+            
+            
              
         </div>
+        
+        {window.innerWidth<=1300?
+            <div className='card Skills'>
+                <Skills/>
+            </div>:<></>
+        }
+
+        <div className='Resume-container'>
+        <object data={Resume1} className='Resume' type="application/pdf">
+        <p>Your browser does not support PDFs. <a href="/path/to/your/pdf/file.pdf">Download the PDF</a>.</p>
+        </object>
+        </div>
+        
+        </>
     )
 }

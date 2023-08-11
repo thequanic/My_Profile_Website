@@ -9,7 +9,9 @@ export default function Home()
 
   const [typedText, setTypedText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const [flag,setFlag]=useState(false)
+  const [flag,setFlag]=useState(false);
+
+  
 
   useEffect(() => {
     if (charIndex < text.length) {
@@ -20,13 +22,16 @@ export default function Home()
 
       return () => {clearTimeout(timeoutId); }
     }
+    else{
+        setFlag(true);
+    }
   }, [charIndex]);
 
     return(
         <div>
          <img src={Img1} alt="image" id="img1"/>
          <h1 id="welcome">{typedText}</h1>
-         <Myself />
+         <Myself flag={flag}/>
         </div>
     )
 }

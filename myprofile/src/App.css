@@ -1,8 +1,11 @@
 body{
   background-color: rgb(255, 255, 255);
+  
 }
 .navbar{
   display: block;
+  position: sticky;
+  
 
 }
 #img1{
@@ -23,8 +26,13 @@ body{
 
 .myself{
   margin-top: 50px;
+  width: 100%;
+  --bs-gutter-x: 0rem;
 }
 
+.highlight{
+  background-color: aquamarine;
+}
 
 
 .mydiv{
@@ -37,6 +45,8 @@ body{
   border: 3px solid black;
   padding-top: 5px;
   padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 5%;
   margin-left: 7%;
   transform: rotateY(30deg);
   animation: rotation 1.5s alternate infinite;
@@ -65,12 +75,11 @@ body{
 }
 
 .pin{
-  display: block;
+  width:20px;
   font-size: 30px;
-  text-align: center;
+  margin-left: calc((100% - 15px) / 2);
   color: red;
   text-shadow: 5px 4px 5px rgba(0, 0, 0, 0.5);
-  width: 100%;
   transform: rotate(70deg);
 
 }
@@ -82,14 +91,14 @@ body{
   border: black solid 3px;
   align-self:center;
   margin-top: 10px;
-  margin-left: 30%;
+  margin-left: calc((100% - 150px) / 2);
   display: block;
 }
 
 #mytable{
   margin-top: 10px;
   margin-left: 15%;
- 
+  
   
   font-weight: bold;
 }
@@ -108,6 +117,12 @@ body{
 
 }
 
+.intro-container{
+  /* background-color: blueviolet; */
+  padding-right: 10px;
+  padding-left: 4%;
+}
+
 #intro{
   white-space:pre-line;
   word-wrap: normal;
@@ -115,6 +130,46 @@ body{
   font-family: 'Times New Roman', Times, serif;
   font-size: large;
 }
+
+.Skills{
+  box-shadow: -10PX 10PX 10PX rgba(0, 0, 0, 0.5);
+  background-color: rgb(1, 1, 69);
+  color:white;
+  width: 85%;
+  margin-left: 5%;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+}
+
+
+
+.skill-item{
+  font-weight: bold;
+
+  text-align:center;
+  color:black;
+  background-color: rgb(200, 239, 252);
+}
+
+.skill-head{
+ font-weight: bolder;
+}
+
+.Resume-container{
+  background-color: orange;
+  width: 100%;
+  
+}
+
+.Resume{
+  width: 80%;
+  margin-left: 10%;
+  height: 700px;
+}
+
 
 @keyframes blink {
   0%, 100% {
@@ -125,12 +180,116 @@ body{
   }
 }
 
-@media only screen and (max-width:1200px) {
+@media only screen and (max-width:1300px) and (min-width:1000px) and (min-height:600px){
+  .mycard-container{
+    display: block;
+    float: none;
+    width: 500px;
+    margin-left: calc((100% - 500px) / 2);
+    margin-right: calc((100% - 500px) / 2);
+  }
+
+  .Skills{
+    margin-left: 7.5%;
+  }
+  
+}
+
+@media only screen and (max-width:993px) and (min-height:600px) {
   #img1
   {
     height: auto;
   }
   #welcome{
     font-size: 40px;
+  }
+  .mycard{
+    align-content: center;
+    animation: none;
+    width:550px;
+    margin-left:calc((100% - 550px) / 2);
+    padding-right: 20px;
+    background-color: rgb(155, 204, 247);
+    padding-bottom: 40px;
+    display: block;
+  }
+  .pin{
+    margin-left: 15%;
+  }
+
+  .myimg{
+    height: 150px;
+    width:150px;
+    margin-top: 40px;
+    border-radius: 75px ;
+    margin-left: 10%;
+    float: left;
+    
+  }
+  #mytable{
+    margin-left: 45%;
+   
+  }
+
+  #intro{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    margin-top: 60px;
+  }
+  .Skills{
+    margin-left: 7.5%;
+  }
+  
+}
+
+@media only screen and (max-width:800px)and (min-height:600px)
+{
+  .mycard{
+    animation: none;
+    width:400px;
+    margin-left:calc((100% - 400px) / 2);
+    
+    background-color: rgb(155, 204, 247);
+    padding-bottom: 40px;
+  }
+  .pin{
+    margin-left: calc((100% - 15px) / 2);
+  }
+  .myimg{
+    height: 100px;
+    width:100px;
+    border-radius: 50px ;
+    margin-top: 10px;
+    margin-left: calc((100% - 100px) / 2);
+    display: block;
+  
+  }
+  #mytable{
+    margin-left: calc((100% - 250px) / 2);
+    min-width: 300px;
+    padding-left: 50px;
+
+  }
+  .item{
+    padding-left: 0%;
+  }
+  #myname{
+    margin-top: 130px;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:400px)and (min-height:600px)
+{
+  .mycard{
+    animation: none;
+    width:350px;
+    margin-left:calc((100% - 350px) / 2);
+    
+    background-color: rgb(155, 204, 247);
+    padding-bottom: 40px;
   }
 }
